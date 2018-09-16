@@ -7,15 +7,15 @@ A library with the advantages of react-redux but less boilerplate code.
 Create a basket for your data (CatContainer.jsx):
 
 ```
-import { Event, Spit } from 'react-spit';
+import { SpitEvent, Spit } from 'react-spit';
 
-export const catEvent = new Event([], 'cats');
+export const catEvent = new SpitEvent([], 'cats');
 
 export default Spit(catEvent);
 ```
 
 This creates you an Event and a Container for your data. In this example is this an Array of cats.
-The `new Event([], 'cats')` creates an Event, this is used for handling new incoming data.The first param of the constructor is the initial Value, your container will have. The second is an identifier. This is mostly used for ServerSide rendering or for debugging causes. More on this later.
+The `new SpitEvent([], 'cats')` creates an Event, this is used for handling new incoming data.The first param of the constructor is the initial Value, your container will have. The second is an identifier. This is mostly used for ServerSide rendering or for debugging causes. More on this later.
 
 The newly created file provides a container. To use it (Animals.jsx):
 ```

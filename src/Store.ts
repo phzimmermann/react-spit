@@ -1,4 +1,13 @@
+import SplitEvent from './SpitEvent';
+
+export interface StoreListener {
+  onAddEvent: (event: SplitEvent<any>) => any,
+}
+
 const Store = class Store {
+  listeners: Array<StoreListener>;
+  events: Array<SplitEvent<any>>;
+
   constructor() {
     this.listeners = [];
     this.events = [];
