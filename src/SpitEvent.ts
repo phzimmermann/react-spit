@@ -15,7 +15,7 @@ export default class SpitEvent<DataType> {
     this.identifier = identifier;
     store.addEvent(this);
   }
-  addListener = (cls: any) => {
+  addListener = (cls: SpitListener<DataType>) => {
     this.listeners.push(cls);
   }
   set = (val: DataType) => {
