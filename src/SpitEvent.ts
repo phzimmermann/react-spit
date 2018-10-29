@@ -1,7 +1,8 @@
 import store from './Store';
 
 export interface SpitListener<DataType> {
-  set: (val: DataType, event: SpitEvent<DataType>) => any,
+  set: (val: DataType, event: SpitEvent<DataType>, debugError?: Error) => any,
+  debug?: boolean,
 }
 
 export default class SpitEvent<DataType> {
@@ -19,7 +20,9 @@ export default class SpitEvent<DataType> {
     this.listeners.push(cls);
   }
   set = (val: DataType) => {
-    this.listeners.forEach(cls => cls.set(val, this));
+    this.listeners.forEach(cls => {
+        cls.set(val, this, cls.debug && new Error('Debug'));
+    });
     this.data = val;
   };
   setInitial = (val: DataType) => this.set(val);
