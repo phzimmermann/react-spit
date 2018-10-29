@@ -1,6 +1,6 @@
 {
   "name": "react-spit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Data handling, the easy way",
   "main": "build/index.js",
   "license": "MIT",
