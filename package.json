@@ -1,6 +1,6 @@
 {
   "name": "react-spit",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Data handling, the easy way",
   "main": "build/index.js",
   "license": "MIT",
@@ -11,6 +11,11 @@
     "react": "^15.5.4",
     "webpack": "^4.19.0"
   },
+  "keywords": [
+    "react",
+    "data-handling",
+    "container"
+  ],
   "scripts": {
     "test": "jest",
     "start": "webpack --watch",
