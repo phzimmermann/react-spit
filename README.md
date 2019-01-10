@@ -46,6 +46,12 @@ This will set your cat data globally. You have always the same data available. A
 
 Any call of the set function will trigger your CatContaier to re-render.
 
+### Google Chrome Extension
+
+Get your Google Chrome extension here:
+[Chrome Web Store](https://chrome.google.com/webstore/detail/react-spit/mcpbgkidiieiedcgmpbajcmigjkpknep). With the Extension you can analyse the different Containers and their versions.
+
+
 ## Advanced Usage
 
 In most cases, setting any data is not as simple as the first use case. If you like to fetch any data for example its more complex.

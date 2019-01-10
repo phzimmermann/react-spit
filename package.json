@@ -22,9 +22,10 @@
     "build": "webpack"
   },
   "author": {
-    "name": "Your name",
+    "name": "Philipp Zimmermann",
     "email": "your email"
   },
+  "homepage": "https://github.com/phzimmermann/react-spit",
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "babel-cli": "^6.24.1",

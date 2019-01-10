@@ -24,6 +24,7 @@ export default class SpitEvent<DataType> {
         cls.set(val, this, cls.debug && new Error('Debug'));
     });
     this.data = val;
+    return val;
   };
   setInitial = (val: DataType) => this.set(val);
   get = () => this.data;
