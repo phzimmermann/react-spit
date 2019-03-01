@@ -17,7 +17,21 @@ export default Spit(catEvent);
 This creates you an Event and a Container for your data. In this example is this an Array of cats.
 The `new SpitEvent([], 'cats')` creates an Event, this is used for handling new incoming data.The first param of the constructor is the initial Value, your container will have. The second is an identifier. This is mostly used for ServerSide rendering or for debugging causes. More on this later.
 
-The newly created file provides a container. To use it (Animals.jsx):
+If you use hooks, you can simply use the useSpit hook (from version 1.1.0):
+```js
+import { useSpit } from 'react-spit';
+import { catEvent } from './CatContainer';
+
+export default () => {
+  const [cats, setCats] = useSpit(catEvent);
+  
+  return cats.map(cat => (
+    <div>{cat}</div>
+ ));
+}
+```
+
+Or the old way with a render props container. To use it (Animals.jsx):
 ```js
 import CatContainer from './CatContainer';
 
@@ -51,6 +65,15 @@ Any call of the set function will trigger your CatContaier to re-render.
 Get your Google Chrome extension here:
 [Chrome Web Store](https://chrome.google.com/webstore/detail/react-spit/mcpbgkidiieiedcgmpbajcmigjkpknep). With the Extension you can analyse the different Containers and their versions.
 
+To enable the Chrome extension just add this snippet to your code:
+```js
+import { Store as store } from "react-spit";
+
+// Enable React Spit Chrome Extension
+if (typeof window !== undefined) {
+  window.__REACT_SPIT_DEV_TOOLS__ && window.__REACT_SPIT_DEV_TOOLS__(store);
+}
+```
 
 ## Advanced Usage
 
@@ -58,9 +81,9 @@ In most cases, setting any data is not as simple as the first use case. If you l
 
 ### Fetch data
 The easiest way would be to just create a new function in a new file, import the cat event, set the data on `fetch.then` and use this function 
-in componentDidMount (fetchCatsAction.js):
-js
-```
+in useEffect or componentDidMount if you dont use hooks (fetchCatsAction.js):
+
+```js
 import { catEvent } from './CatContainer';
 
 export default async () => {
@@ -71,7 +94,20 @@ export default async () => {
     
 ```
 
-This could be called in any componentDidMount:
+This could be called in useEffect:
+
+```js
+import fetchCats from './fetchCatsAction';
+
+...
+
+useEffect(() => {
+    fetchCats();
+}, []);
+    
+```
+
+Or any componentDidMount:
 
 ```js
 import fetchCats from './fetchCatsAction';
